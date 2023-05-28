@@ -1,9 +1,14 @@
 const express = require('express');
-const connectDatabase = require('./src/config/database');
-const authRoutes = require('./src/routes/auth');
-const examsRoutes = require('./src/routes/exams');
+const cors = require('cors');
+const connectDatabase = require('./config/database');
+const authRoutes = require('./routes/auth');
+const examsRoutes = require('./routes/exams');
 
 const app = express();
+
+// Enable CORS
+app.use(cors());
+
 app.use(express.json());
 
 // Connect to MongoDB
